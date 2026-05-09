@@ -8,31 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var message = ""
-    @State private var imageString = ""
+    @State private var message = ""   // Sring Data Type
+    @State private var imageName = ""  // String Data Type
+    @State private var imageNumber = 0  // Int Data Type of Whole Numbers
+    
     var body: some View {
         
         VStack {
             Spacer()
             
-            Image(systemName: imageString)
+            Image(imageName)
                 .resizable()
                 .scaledToFit()
-                .foregroundStyle(.orange)
+                .clipShape(RoundedRectangle(cornerRadius: 30))
+                .shadow(radius: 30)
                 
             Text(message)
                 .font(.largeTitle)
-                .fontWeight(.ultraLight)
+                .fontWeight(.heavy)
+                .foregroundStyle(.red)
             
             Spacer()
             
-            
-            Button("Press Me!") {
-                let message1 = "Yoou are Awesome!"
+            Button("Show Message!") {
+                let message1 = "You are Awesome!"
                 let message2 = "You are Great!"
-                let imageString1 = "hand.thumbsup"
-                let imageString2 = "sun.max.fill"
-                
 //                if message == message1 {
 //                    message = message2
 //                    imageString = imageString2
@@ -41,11 +41,18 @@ struct ContentView: View {
 //                    imageString = imageString1
 //                }
                 message = (message == message1 ? message2 : message1)
-                imageString = (imageString == imageString1 ? imageString2 : imageString1)
+//               imageName = (imageName == "image0" ? "image1" : "image0")
+                
+                // TODO: -Update the imageName variable-
+                imageName = "image\(imageNumber)"
+                imageNumber += 1
+                
+                if imageNumber > 9 {
+                    imageNumber = 0
+                }
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
-            .tint(.orange)
         }
         .padding()
         
@@ -56,3 +63,4 @@ struct ContentView: View {
     ContentView()
 }
 // print(person == "Limor" ? "Hello, Lady Ada" : "Hello, There!")
+// Changes done
