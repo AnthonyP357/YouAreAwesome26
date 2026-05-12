@@ -16,19 +16,21 @@ struct ContentView: View {
     var body: some View {
         
         VStack {
-            Spacer()
+            
+            Text(message)
+                .font(.largeTitle)
+                .fontWeight(.heavy)
+                .foregroundStyle(.red)
+                .multilineTextAlignment(.center)
             
             Image(imageName)
                 .resizable()
                 .scaledToFit()
                 .clipShape(RoundedRectangle(cornerRadius: 30))
                 .shadow(radius: 30)
+                .animation(.default, value: imageName)
                 
-            Text(message)
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .foregroundStyle(.red)
-                .multilineTextAlignment(.center)
+            
             
             Spacer()
             
@@ -39,25 +41,15 @@ struct ContentView: View {
                                 "Fabulous? That's You Great Photo!",
                                 "You Are Fantastic!",
                                 "When The Genius Bar Needs Help, They Call You!",
-//                                "You Make Me Smile!",
                                 "Looking Good!",
                                 "Working Hard Developing!",
                                 "So Beautiful"]
                 
-                message = messages[messageNumber]
-                messageNumber += 1
-                
-                if messageNumber == messages.count {
-                    messageNumber = 0
-                }
+                message = messages[Int.random(in: 0...messages.count-1)]
+
                 
                 // TODO: -Update the imageName variable-
-                imageName = "image\(imageNumber)"
-                imageNumber += 1
-                
-                if imageNumber > 9 {
-                    imageNumber = 0
-                }
+                imageName = "image\(Int.random(in: 0...9))"
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
