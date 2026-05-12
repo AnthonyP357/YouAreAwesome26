@@ -33,12 +33,16 @@ struct ContentView: View {
             Spacer()
             
             Button("Show Message!") {
-                let messages = ["You Are Awesome!",
+                let messages = ["This Is The Place!",
+                                "You Are Awesome!",
                                 "You Are Great!",
-                                "Fabulous? That's You GreatPhoto!",
-                                "You Are Fantastic",
-                                "When The Genius Bar Needs Help, They Call You",
-                                "You Make Me Smile"]
+                                "Fabulous? That's You Great Photo!",
+                                "You Are Fantastic!",
+                                "When The Genius Bar Needs Help, They Call You!",
+//                                "You Make Me Smile!",
+                                "Looking Good!",
+                                "Working Hard Developing!",
+                                "So Beautiful"]
                 
                 message = messages[messageNumber]
                 messageNumber += 1
